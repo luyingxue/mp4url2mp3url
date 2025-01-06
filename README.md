@@ -11,3 +11,10 @@
 - 任务状态查询
 
 ## 文件结构
+
+
+
+## 运行项目
+
+uvicorn main:app --reload
+访问 http://localhost:8000/static/index.html 查看web界面
