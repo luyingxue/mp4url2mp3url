@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>视频转音频</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>视频转音频工具</h1>
+        <input type="text" id="videoUrl" placeholder="输入视频URL" style="width: 80%;">
+        <button onclick="convertVideo()">转换</button>
+        <div id="result" class="result">
+            <p>音频文件URL：</p>
+            <a id="audioUrl" href="" target="_blank"></a>
+        </div>
+    </div>
+
+    <script>
+        async function convertVideo() {
+            const videoUrl = document.getElementById('videoUrl').value;
+            const resultDiv = document.getElementById('result');
+            const audioUrlElement = document.getElementById('audioUrl');
+
+            try {
+                const response = await fetch('/convert', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ url: videoUrl })
+                });
+
+                const data = await response.json();
+                audioUrlElement.href = data.url;
+                audioUrlElement.textContent = data.url;
+                resultDiv.style.display = 'block';
+            } catch (error) {
+                alert('转换失败: ' + error);
+            }
+        }
+    </script>
+</body>
+</html> 

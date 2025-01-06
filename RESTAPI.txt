@@ -1,0 +1,35 @@
+# MP4转MP3服务 API文档
+
+## 1. API规格
+
+### 1.1 基本信息
+- 服务地址：http://服务器IP:8000
+- 请求格式：JSON
+- 响应格式：JSON
+- Content-Type: application/json
+
+### 1.2 接口说明
+
+#### 视频转换
+- 方法：POST
+- 路径：/convert
+- 描述：将MP4视频转换为MP3音频
+
+请求体：
+{
+    "url": "string"  // MP4视频的URL地址
+}
+
+成功响应 (200 OK)：
+{
+    "url": "string"  // 转换后的MP3文件URL
+}
+
+错误响应：
+{
+    "detail": "错误描述"
+}
+
+## 2. 调用示例
+
+### 2.1 Python

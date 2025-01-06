@@ -1,0 +1,11 @@
+version: '3'
+services:
+  converter:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - MINIO_ENDPOINT=154.26.182.89:9000
+      - MINIO_ACCESS_KEY=Dr0KWweNBU37OrnX236d
+      - MINIO_SECRET_KEY=MermKZA3PejEjpJauSpGOCbmax0vE3gdRjjDZ4Yl
+      - MINIO_BUCKET=ai-book-review 

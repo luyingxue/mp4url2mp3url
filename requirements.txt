@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+python-dotenv
+moviepy==1.0.3
+minio
+requests
+python-multipart
+numpy
+decorator
+imageio
+imageio-ffmpeg
+proglog
+tqdm 
